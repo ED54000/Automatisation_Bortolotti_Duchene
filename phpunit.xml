@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="tst/Bootstrap.php" colors="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage>
+    <include>
+      <directory suffix=".php">./lib</directory>
+      <directory suffix=".php">./vendor</directory>
+    </include>
+    <exclude>
+      <file>./lib/Data/AbstractData.php</file>
+    </exclude>
+    <report>
+      <clover outputFile="log/coverage-clover.xml"/>
+      <html outputDirectory="log/php-coverage-report" lowUpperBound="50" highLowerBound="80"/>
+    </report>
+  </coverage>
+  <testsuite name="PrivateBin Test Suite">
+    <directory suffix=".php">./tst</directory>
+  </testsuite>
+  <logging>
+    <testdoxHtml outputFile="log/testdox.html"/>
+  </logging>
+</phpunit>
