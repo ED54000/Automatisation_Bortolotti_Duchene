@@ -1,25 +1,17 @@
-name: Action PHP Unit
-
-on: 
-  push:
-    branches:
-      - main  
-
+name: push CI
+run-name: ${{ github.repository }} CI [${{ github.event_name }}]
+on: [push]
 jobs:
-  build-test:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+      - name: Checkout ${{ github.ref }} on ${{ runner.os }} machine
+        uses: actions/checkout@v4
+      - name: "📝 Installing dependencies"
+        uses: php-actions/composer@v6
+      - name: 🔨 Running tests
+        uses: php-actions/phpunit@v3
         with:
-          php-version: '8.1'  
-          extensions: gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip
-      - name: Install dependencies
-        run: composer install 
-      - name: Run PHPUnit tests
-        uses: php-actions/phpunit@v4  
-
-            
+          php_extensions: gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip
+      - name: ✅ Tests completed
+        run: echo "Job status is '${{ job.status }}'"
