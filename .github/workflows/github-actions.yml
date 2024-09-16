@@ -19,7 +19,7 @@ jobs:
         run: composer install
 
       - name: 🔨 Running tests
-        uses: php-actions/phpunit@v3
+        uses: php-actions/phpunit@v9.6.15
 
       - name: ✅ Tests completed
         run: echo "Job status is '${{ job.status }}'"
