@@ -11,12 +11,15 @@ jobs:
       
       - name: Update apt-get
         run: sudo apt-get update
+      
+      - name: Install gd
+        run: sudo apt-get install php-gd -y
 
       - name: "📝 Setting up PHP with extensions"
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
-          extensions: gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip
+          extensions: sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip
 
       - name: "📝 Installing dependencies"
         run: composer install
