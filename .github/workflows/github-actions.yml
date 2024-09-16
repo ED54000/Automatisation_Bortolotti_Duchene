@@ -8,11 +8,14 @@ jobs:
     steps:
       - name: Checkout ${{ github.ref }} on ${{ runner.os }} machine
         uses: actions/checkout@v4
+      
+      - name: Update apt-get
+        run: sudo apt-get update
 
       - name: "📝 Setting up PHP with extensions"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Ou la version PHP que vous utilisez
+          php-version: '8.1'
           extensions: gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip
 
       - name: "📝 Installing dependencies"
