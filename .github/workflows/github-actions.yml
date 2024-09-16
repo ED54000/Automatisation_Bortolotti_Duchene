@@ -9,19 +9,17 @@ jobs:
       - name: Checkout ${{ github.ref }} on ${{ runner.os }} machine
         uses: actions/checkout@v4
 
-    
-      
-      - name: "📝 Setting up PHP with extensions"
+      - name: "📝 Set up PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
-          extensions: composer gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip
+          extensions: gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip
 
       - name: "📝 Installing dependencies"
         run: composer install
 
       - name: 🔨 Running tests
-        uses: php-actions/phpunit@v3
+        uses: php-actions/phpunit@v4
 
       - name: ✅ Tests completed
         run: echo "Job status is '${{ job.status }}'"
