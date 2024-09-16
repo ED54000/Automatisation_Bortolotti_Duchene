@@ -1,4 +1,4 @@
-name: push CI
+name: Actions
 run-name: ${{ github.repository }} CI [${{ github.event_name }}]
 on: [push]
 jobs:
