@@ -1,0 +1,7 @@
+# Ignore data/
+/data/
+doc/*
+!doc/*.md
+vendor
+log
+.phpunit.result.cache
