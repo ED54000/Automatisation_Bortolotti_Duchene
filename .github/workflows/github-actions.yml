@@ -22,7 +22,8 @@ jobs:
       - name: "🔨 Running tests"
         uses: php-actions/phpunit@v3
         with:
-          php_extensions: gd 
+          version: '9.6.11'
+          php_extensions: "xdebug gd" 
 
       - name: "✅ Tests completed"
         run: echo "Job status is '${{ job.status }}'"
