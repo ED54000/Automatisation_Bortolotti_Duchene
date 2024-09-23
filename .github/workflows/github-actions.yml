@@ -3,7 +3,7 @@ run-name: ${{ github.repository }} CI [${{ github.event_name }}]
 on: [push]
 
 jobs:
-  Explore-GitHub-Actions:
+  Github_Actions:
     runs-on: ubuntu-latest
 
     steps:
