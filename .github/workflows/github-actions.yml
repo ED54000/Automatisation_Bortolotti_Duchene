@@ -26,6 +26,13 @@ jobs:
         uses: "irongut/CodeCoverageSummary@v1.3.0"
         with:
          filename: coverage/cobertura.xml
+         badge: true
+         format: markdown
+         output: both
+
+
+      - name: ✅ Exporting coverage to action summary
+        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
       - name: "✅ Tests completed"
         run: echo "Job status is '${{ job.status }}'"
