@@ -18,16 +18,14 @@ jobs:
         with :
           version: '9.6.11'
           php_extensions: "xdebug gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip" 
-          coverage_text: "coverage/text.txt"
           coverage_cobertura: "coverage/cobertura.xml"
         env : 
           XDEBUG_MODE: "coverage"
-
-
-      - name: "✅ Tests completed"
-        run: echo "Job status is '${{ job.status }}'"
-
+         
       - name: "Code Coverage Summary Report"
         uses: "irongut/CodeCoverageSummary@v1.3.0"
         with:
-          filename: coverage.cobertura.xml
+         filename: coverage/cobertura.xml
+
+      - name: "✅ Tests completed"
+        run: echo "Job status is '${{ job.status }}'"
