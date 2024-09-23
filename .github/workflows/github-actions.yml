@@ -19,6 +19,7 @@ jobs:
           version: '9.6.11'
           php_extensions: "xdebug gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip" 
           coverage_text: "coverage/text.txt"
+          coverage_cobertura: "coverage/cobertura.xml"
         env : 
           XDEBUG_MODE: "coverage"
       - name: "✅ Tests completed"
