@@ -3,7 +3,6 @@
   <coverage>
     <include>
       <directory suffix=".php">./lib</directory>
-      <directory suffix=".php">./vendor</directory>
     </include>
     <exclude>
       <file>./lib/Data/AbstractData.php</file>

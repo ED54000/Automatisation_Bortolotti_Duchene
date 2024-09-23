@@ -18,6 +18,7 @@ jobs:
         with:
           version: '9.6.11'
           php_extensions: "xdebug gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip" 
+          coverage_clover: "coverage/clover.txt"
 
       - name: "✅ Tests completed"
         run: echo "Job status is '${{ job.status }}'"
