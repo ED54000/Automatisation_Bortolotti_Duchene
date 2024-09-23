@@ -13,16 +13,13 @@ jobs:
       - name: "📝 Installing dependencies"
         run: composer install
       
-      - name: "Set Xdebug"
-        run: XDEBUG_MODE=coverage 
-
       - name: "🔨 Running tests"
         uses: php-actions/phpunit@v3
-        with:
+        with :
           version: '9.6.11'
           php_extensions: "xdebug gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip" 
-          
           coverage_text: "coverage/text.txt"
-
+        env : 
+          XDEBUG_MODE: "coverage"
       - name: "✅ Tests completed"
         run: echo "Job status is '${{ job.status }}'"
