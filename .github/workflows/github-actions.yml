@@ -12,13 +12,16 @@ jobs:
 
       - name: "📝 Installing dependencies"
         run: composer install
+      
+      - name: "Set Xdebug"
+        run: XDEBUG_MODE=coverage 
 
       - name: "🔨 Running tests"
         uses: php-actions/phpunit@v3
         with:
           version: '9.6.11'
           php_extensions: "xdebug gd sqlite3 dom json libxml mbstring tokenizer xml xmlwriter zip" 
-          run: XDEBUG_MODE=coverage 
+          
           coverage_text: "coverage/text.txt"
 
       - name: "✅ Tests completed"
