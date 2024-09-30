@@ -11,7 +11,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: "📝 Installing dependencies"
-        run: composer install
+        run: composer install composer require --dev "squizlabs/php_codesniffer=3.*" composer require --dev "phpmd/phpmd=@stable" composer require --dev phpstan/phpstan
+      
+      - name: "Run PHPCS"
+        run: ./vendor/bin/phpcs --extensions=php ./lib/
+      
+      - name: "Run PHPMD"
+        run: ./vendor/bin/phpmd ./lib/ ansi codesize,unusedcode,naming
+      
+      - name: "Run PHPStan"
+        run: ./vendor/bin/phpstan analyse ./lib/ --level=7
       
       - name: "🔨 Running tests"
         uses: php-actions/phpunit@v3
