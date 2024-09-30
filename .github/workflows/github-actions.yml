@@ -11,16 +11,28 @@ jobs:
         uses: actions/checkout@v4
 
       - name: "📝 Installing dependencies"
-        run: composer install || composer require --dev "squizlabs/php_codesniffer=3.*" ||  composer require --dev "phpmd/phpmd=@stable"  ||  composer require --dev phpstan/phpstan
+        run: composer install 
       
-      - name: "Run PHPCS"
-        run: ./vendor/bin/phpcs --extensions=php ./lib/
+      - name: PHP Mess Detector
+        uses: php-actions/phpmd@v1
+        with:
+          php_version: 8.1
+          path: lib/
+          output: text
+          ruleset: ruleset.xml
       
-      - name: "Run PHPMD"
-        run: ./vendor/bin/phpmd ./lib/ ansi codesize,unusedcode,naming
+      - name: PHP Code Sniffer
+        uses: php-actions/phpcs@v1
+        with:
+         php_version: 8.1
+         path: lib/
+        
       
-      - name: "Run PHPStan"
-        run: ./vendor/bin/phpstan analyse ./lib/ --level=7
+      - name: PHPStan Static Analysis
+        uses: php-actions/phpstan@v3
+        with:
+          paths_file: lib/
+          memory_limit: 256M
       
       - name: "🔨 Running tests"
         uses: php-actions/phpunit@v3
