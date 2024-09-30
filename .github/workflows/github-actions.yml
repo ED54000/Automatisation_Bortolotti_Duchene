@@ -21,8 +21,8 @@ jobs:
       - name: PHPStan Static Analysis
         uses: php-actions/phpstan@v3
         with:
-          paths_file: lib/
-          memory_limit: 256M
+          path: lib/
+
       
       - name: "🔨 Running tests"
         uses: php-actions/phpunit@v3
