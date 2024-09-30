@@ -39,7 +39,7 @@ class Comment extends AbstractModel
      * @access public
      * @throws Exception
      */
-    public function store()
+    public function store() : void
     {
         // Make sure paste exists.
         $pasteid = $this->getPaste()->getId();
@@ -78,7 +78,7 @@ class Comment extends AbstractModel
      * @access public
      * @throws Exception
      */
-    public function delete()
+    public function delete() : void 
     {
         throw new Exception('To delete a comment, delete its parent paste', 64);
     }
@@ -105,7 +105,7 @@ class Comment extends AbstractModel
      * @param Paste $paste
      * @throws Exception
      */
-    public function setPaste(Paste $paste)
+    public function setPaste(Paste $paste) : void 
     {
         $this->_paste           = $paste;
         $this->_data['pasteid'] = $paste->getId();
@@ -129,7 +129,7 @@ class Comment extends AbstractModel
      * @param string $id
      * @throws Exception
      */
-    public function setParentId($id)
+    public function setParentId($id) : void 
     {
         if (!self::isValidId($id)) {
             throw new Exception('Invalid paste ID.', 65);
@@ -158,7 +158,7 @@ class Comment extends AbstractModel
      * @param  array $data
      * @return array
      */
-    protected function _sanitize(array $data)
+    protected function _sanitize(array $data) : array 
     {
         // we generate an icon based on a SHA512 HMAC of the users IP, if configured
         $icon = $this->_conf->getKey('icon');
