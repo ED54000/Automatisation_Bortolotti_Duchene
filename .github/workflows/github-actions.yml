@@ -52,6 +52,7 @@ jobs:
         server: ${{ secrets.SECRET_URL}}
         username: ${{ secrets.SECRET_USER}}
         password: ${{ secrets.SECRET_PWD }}
+        server-dir : /www/
         exclude: |
            vendor/**
             **/.git*
