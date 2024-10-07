@@ -37,3 +37,17 @@ jobs:
 
       - name: "✅ Tests completed"
         run: echo "Job status is '${{ job.status }}'"
+
+  web-deploy:
+    name: 🎉 Deployer
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.SECRET_URL}}
+        username: ${{ secrets.SECRET_USER}}
+        password: ${{ secrets.SECRET_PWD }}
