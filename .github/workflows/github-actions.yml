@@ -40,6 +40,7 @@ jobs:
 
   web-deploy:
     name: 🎉 Deployer
+    needs : Github_Actions
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
