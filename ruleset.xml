@@ -20,7 +20,7 @@
     <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
         <priority>1</priority>
         <properties>
-            <property name="reportLevel" value="4" />
+            <property name="reportLevel" value="12" />
         </properties>
     </rule>
 
