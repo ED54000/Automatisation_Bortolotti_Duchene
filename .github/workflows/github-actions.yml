@@ -13,7 +13,27 @@ jobs:
       - name: "📝 Installing dependencies"
         run: composer install       
       
+      - name: PHP Mess Detector
+        uses: php-actions/phpmd@v1
+        with:
+          php_version: 8.1
+          path: lib/
+          output: ansi
+          ruleset: ruleset.xml
            
+      - name: PHP Code Sniffer
+        uses: php-actions/phpcs@v1
+        with:
+           php_version: 8.1
+           path: lib/
+      
+      - name: PHPStan Static Analysis
+        uses: php-actions/phpstan@v3
+        with:
+             path: lib/
+             level: max
+      
+      
       - name: "🔨 Running tests"
         uses: php-actions/phpunit@v3
         with :
