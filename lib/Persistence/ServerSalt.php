@@ -3,11 +3,13 @@
  * PrivateBin
  *
  * a zero-knowledge paste bin
+ * 
+ * @author    Sébastien SAUVAGE
  * @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @link      https://github.com/PrivateBin/PrivateBin
  * @license   https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License
  * @version   1.5.1
- * @author    Sébastien SAUVAGE
+ * 
  */
 
 namespace PrivateBin\Persistence;
