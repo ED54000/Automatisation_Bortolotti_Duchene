@@ -52,3 +52,8 @@ jobs:
         server: ${{ secrets.SECRET_URL}}
         username: ${{ secrets.SECRET_USER}}
         password: ${{ secrets.SECRET_PWD }}
+        exclude: |
+           vendor/**
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
