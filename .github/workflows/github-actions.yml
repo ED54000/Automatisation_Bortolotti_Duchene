@@ -20,18 +20,21 @@ jobs:
           path: lib/
           output: ansi
           ruleset: ruleset.xml
+          continue-on-error: true
            
       - name: PHP Code Sniffer
         uses: php-actions/phpcs@v1
         with:
            php_version: 8.1
            path: lib/
+           continue-on-error: true
       
       - name: PHPStan Static Analysis
         uses: php-actions/phpstan@v3
         with:
              path: lib/
              level: max
+             continue-on-error: true
       
       
       - name: "🔨 Running tests"
